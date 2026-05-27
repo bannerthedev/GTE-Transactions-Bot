@@ -6,12 +6,16 @@ import json
 import logging
 import random
 from pathlib import Path
+import os 
+import dotenv
 
 import discord
 from discord import app_commands
 from discord.ext import commands
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
+load_dotenv()
 
 # ---------------- CONFIG (fill these) ----------------
 TOKEN = "MTUwOTI0MDA3OTg3NTMxMzg3Nw.GAFql-.W3_J-mfEkYWDwmXoAnDhpdCgMCGsuUBAzjl-cE"
@@ -2284,7 +2288,7 @@ async def on_ready():
 
 
 async def main():
-    await bot.start(TOKEN)
+    await bot.start(os.getenv("TOKEN"))
 
 
 if __name__ == "__main__":
